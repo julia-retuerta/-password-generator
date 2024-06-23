@@ -22,7 +22,7 @@ rangeInputElement.addEventListener('input', updateLabel);
 const generatePasswordButtonElement = document.getElementById('generate-password-button');
 
 const generatePassword = () => {
-    const randomCharacter = Math.floor(Math.random())
+  const randomCharacter = Math.floor(Math.random());
 };
 
 generatePasswordButtonElement.addEventListener('click', generatePassword);
