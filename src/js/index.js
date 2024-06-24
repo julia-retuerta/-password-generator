@@ -10,6 +10,9 @@ import '../scss/styles.scss';
 
 const availableCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz01234567890!@#$%^&*()_+-={}[]:;<>,.?/';
 
+let passwordLength = 16;
+let finalPassword = '';
+
 const rangeLabelElement = document.getElementById('range-label');
 const rangeInputElement = document.getElementById('range');
 
@@ -22,7 +25,12 @@ rangeInputElement.addEventListener('input', updateLabel);
 const generatePasswordButtonElement = document.getElementById('generate-password-button');
 
 const generatePassword = () => {
-  const randomCharacter = Math.floor(Math.random());
+  finalPassword = '';
+  for (let i = 0; i < passwordLength; i++) {
+    const randomPosition = Math.floor(Math.random() * availableCharacters.length - 1);
+    const randomCharacter = availableCharacters.charAt(randomPosition);
+    finalPassword += randomCharacter;
+  }
 };
 
 generatePasswordButtonElement.addEventListener('click', generatePassword);
