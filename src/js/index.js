@@ -25,13 +25,24 @@ const updateLabel = () => {
 
 rangeInputElement.addEventListener('input', updateLabel);
 
+// función que se encarga de generar una posición aleatoria
+const generateRandomPosition = () => {
+  const randomPosition = Math.floor(Math.random() * availableCharacters.length);
+  return randomPosition;
+};
+
+// función que se encarga de generar el carácter aleatorio
+const getRandomCharacter = () => {
+  const randomPosition = generateRandomPosition();
+  const randomCharacter = availableCharacters.charAt(randomPosition);
+  return randomCharacter;
+};
+
 // función que se encarga de generar el bucle
 const generatePassword = () => {
   finalPassword = '';
   for (let i = 0; i < passwordLength; i++) {
-    // función que se encarga de generar el carácter aleatorio
-    const randomPosition = Math.floor(Math.random() * availableCharacters.length);
-    const randomCharacter = availableCharacters.charAt(randomPosition);
+    const randomCharacter = getRandomCharacter();
     finalPassword += randomCharacter;
   }
 
